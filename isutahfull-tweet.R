@@ -18,7 +18,7 @@ isutahfull_token <- rtweet::create_token(
 # pick point within utah state boundaries ---------------------------------
 
 # https://gis.utah.gov/data/boundaries/citycountystate/
-ut_state_boundaries <- sf::read_sf("/Users/jacobeliason/Files/Code/Repos/utmapbot/DATA/Utah_State_Boundary-shp/Utah.shp")
+ut_state_boundaries <- sf::read_sf("Utah.shp")
 
 # nw 41.993715, -114.041721
 # sw 37.000390, -114.050597
