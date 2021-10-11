@@ -29,7 +29,7 @@ ut_state_boundaries <- sf::read_sf("Utah.shp")
 test_result <- F
 while(!test_result){
   lat <- round(runif(1, 36.9, 42.1), 4)
-  lon <- round(runif(1, -114.1, -109.1), 4)
+  lon <- round(runif(1, -114.1, -108.9), 4)
   rand_pt <- data.frame(lon, lat) 
   rand_pt_sf <- st_as_sf(rand_pt, coords = c("lon", "lat"), crs = "+proj=longlat +datum=WGS84 +no_defs")
   test <- sf::st_intersection(ut_state_boundaries, rand_pt_sf)
