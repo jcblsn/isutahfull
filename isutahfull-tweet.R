@@ -7,7 +7,7 @@ library(sf)
 
 # create twitter token ----------------------------------------------------
 
-utmapbot_token <- rtweet::create_token(
+isutahfull_token <- rtweet::create_token(
   app = "isutahfull",
   consumer_key =    Sys.getenv("TWITTER_CONSUMER_API_KEY"),
   consumer_secret = Sys.getenv("TWITTER_CONSUMER_API_SECRET"),
