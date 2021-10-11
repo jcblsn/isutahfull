@@ -5,7 +5,7 @@ This repository contains code for the Twitter bot [`isutahfull`](https://twitter
 
 # Attribution
 
-`isutahfull` is part of the ['mapbotverse'](https://github.com/matt-dray/londonmapbot). The author wrote a very helpful guide to his workflow, which can be found [here](https://www.rostrum.blog/2020/09/21/londonmapbot/).
+`isutahfull` is part of the ['mapbotverse'](https://github.com/matt-dray/londonmapbot). The author of the original template wrote a very helpful guide to his workflow, which can be found [here](https://www.rostrum.blog/2020/09/21/londonmapbot/).
 
 # Differences from londonmapbot
 
