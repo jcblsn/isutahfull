@@ -2,7 +2,7 @@ name: londonmapbot
 
 on:
   schedule:
-    - cron: '42 0/2 * * *'  # once every two hours
+    - cron: '*/15 * * * *'  # once every 15 minutes
 
 jobs:
   londonmapbot-post:
@@ -19,4 +19,4 @@ jobs:
       - name: Install rtweet package
         run: Rscript -e 'install.packages("rtweet", dependencies = TRUE)'
       - name: Create and post tweet
-        run: Rscript londonmapbot-tweet.R
+        run: Rscript isutahfull-tweet.R
