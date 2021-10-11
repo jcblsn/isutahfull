@@ -1,11 +1,11 @@
-name: londonmapbot
+name: isutahfull
 
 on:
   schedule:
     - cron: '*/15 * * * *'  # once every 15 minutes
 
 jobs:
-  londonmapbot-post:
+  isutahfull-post:
     runs-on: macOS-latest
     env:
       TWITTER_CONSUMER_API_KEY: ${{ secrets.TWITTER_CONSUMER_API_KEY }}

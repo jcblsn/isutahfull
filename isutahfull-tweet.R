@@ -72,6 +72,7 @@ latlon_details <- paste0(
 
 rtweet::post_tweet(
   status = latlon_details,
-  media = temp_file,
+  media = temp_file, 
   token = isutahfull_token
 )
+
