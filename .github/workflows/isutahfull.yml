@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: r-lib/actions/setup-r@master
-      - name: Install rtweet package
-        run: Rscript -e 'install.packages(c("rtweet", "sf"), dependencies = TRUE)'
+      - name: Install packages
+        run: Rscript -e 'install.packages(c("rtweet", "sf", "RSelenium"), dependencies = TRUE)'
       - name: Create and post tweet
         run: Rscript isutahfull-tweet.R

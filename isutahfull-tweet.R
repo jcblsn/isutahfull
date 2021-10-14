@@ -3,6 +3,7 @@
 # setup -------------------------------------------------------------------
 
 library(sf)
+library(RSelenium)
 
 # create twitter token ----------------------------------------------------
 
@@ -61,12 +62,61 @@ h <- 512*1.5
 temp_file <- tempfile()
 download.file(img_url, temp_file)
 
+
+
+
+# identify nearby points of interest --------------------------------------
+nearby_point_of_interest <- NA
+wiki_link <- paste0("https://en.wikipedia.org/wiki/Special:Nearby#/coord/",lat,",",lon)
+
+rD <- rsDriver(browser="firefox", port=4545L, verbose=F)
+
+# wait a sec
+for (i in 1:3){
+  print(i)
+  date_time<-Sys.time()
+  while((as.numeric(Sys.time()) - as.numeric(date_time))<2){} #dummy while loop
+}
+
+remDr <- rD[["client"]]
+
+remDr$navigate(wiki_link)
+
+# wait a sec
+for (i in 1:3){
+  print(i)
+  date_time<-Sys.time()
+  while((as.numeric(Sys.time()) - as.numeric(date_time))<2){} #dummy while loop
+}
+
+
+# out_text <- remDr$findElement(using = "xpath", value = "/html/body/div[3]/div[3]/div[4]/div[2]/div/ul/li/a/h3")
+# out_link <- remDr$findElement(using = "xpath", "/@href")
+
+tmp <- remDr$findElement(using = "tag name", value = "li"); tmp$getElementText()
+nearby_point_of_interest <- gsub(as.character(x = tmp$getElementText()), pattern = "\n",replacement = " - ")
+
+
 # build the status message (text and URL) ---------------------------------
 
-latlon_details <- paste0(
-  lat, ", ", lon, "\n",
-  "https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/"
-)
+if(nearby_point_of_interest != "Not logged in" & !is.na(nearby_point_of_interest)){
+
+  latlon_details <- paste0(
+    lat, ", ", lon, "\n",
+    "Nearby point of interest: ",nearby_point_of_interest," away\n",
+    "https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/"
+  )
+  
+} else {
+  
+  latlon_details <- paste0(
+    lat, ", ", lon, "\n",
+    "https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/"
+  )
+
+}
+
+latlon_details
 
 # post the image to Twitter -----------------------------------------------
 
@@ -76,3 +126,5 @@ rtweet::post_tweet(
   token = isutahfull_token
 )
 
+rD$server$stop()
+rm(list = ls())
