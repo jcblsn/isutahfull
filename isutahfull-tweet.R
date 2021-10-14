@@ -72,19 +72,16 @@ wiki_link <- paste0("https://en.wikipedia.org/wiki/Special:Nearby#/coord/",lat,"
 rD <- rsDriver(browser="firefox", port=4545L, verbose=F)
 
 # wait a sec
-for (i in 1:3){
+for (i in 1:5){
   print(i)
   date_time<-Sys.time()
   while((as.numeric(Sys.time()) - as.numeric(date_time))<2){} #dummy while loop
 }
-
 remDr <- rD[["client"]]
-
-
 remDr$navigate(wiki_link)
 
 # wait a sec
-for (i in 1:3){
+for (i in 1:5){
   print(i)
   date_time<-Sys.time()
   while((as.numeric(Sys.time()) - as.numeric(date_time))<2){} #dummy while loop
@@ -109,7 +106,8 @@ if(nearby_point_of_interest != "Not logged in" & !is.na(nearby_point_of_interest
     emo::ji("pin"), " ",lat, ", ", lon, "\n\n",
     emo::ji("i"), " Nearby point of interest: ",nearby_point_of_interest,"\n\n",
     emo::ji("link"), " ", wiki_link, "\n\n",
-    emo::ji("link"), " https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/"
+    emo::ji("link"), " https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/","\n\n",
+    "#utah"
   )
   
 } else {
@@ -117,7 +115,8 @@ if(nearby_point_of_interest != "Not logged in" & !is.na(nearby_point_of_interest
   latlon_details <- paste0(
     emo::ji("pin"), " ",lat, ", ", lon, "\n\n",
     emo::ji("i"), " No nearby points of interest","\n\n",
-    emo::ji("link"), " https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/"
+    emo::ji("link"), " https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/","\n\n",
+    "#utah"
   )
 
 }
@@ -133,4 +132,5 @@ rtweet::post_tweet(
 )
 
 rD$server$stop()
+
 rm(list = ls())
