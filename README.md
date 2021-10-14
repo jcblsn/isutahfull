@@ -1,7 +1,7 @@
 
 # isutahfull
 
-This repository contains code for the Twitter bot [`isutahfull`](https://twitter.com/isutahfull).
+This repository contains code for the Twitter bot [`texturesofut`](https://twitter.com/texturesofut).
 
 # Attribution
 
