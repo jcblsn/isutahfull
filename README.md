@@ -10,7 +10,9 @@ This repository contains code for the Twitter bot [`isutahfull`](https://twitter
 # Differences from londonmapbot
 
 1. I added code to constrain points within a geographic area using a given shape file.
-2. I am working on an image classification model to categorize satellite images as either have "evidence" or "no evidence" of human settlement.
+2. Using RSelenium, I query Wikipedia using the random coordinates to find points of interest. The first is added to the body of the tweet.
+3. emo::ji() :)
+4. I am working on an image classification model to categorize satellite images as either have "evidence" or "no evidence" of human settlement.
 
 # Image credits
 
