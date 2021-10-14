@@ -69,7 +69,7 @@ download.file(img_url, temp_file)
 nearby_point_of_interest <- NA
 wiki_link <- paste0("https://en.wikipedia.org/wiki/Special:Nearby#/coord/",lat,",",lon)
 
-rD <- rsDriver(browser="firefox", port=4545L, verbose=F, geckover = "0.22.0")
+rD <- rsDriver(browser="firefox", port=4545L, verbose=F)
 
 # wait a sec
 for (i in 1:3){
@@ -79,6 +79,7 @@ for (i in 1:3){
 }
 
 remDr <- rD[["client"]]
+
 
 remDr$navigate(wiki_link)
 
