@@ -107,14 +107,16 @@ if(nearby_point_of_interest != "Not logged in" & !is.na(nearby_point_of_interest
   latlon_details <- paste0(
     emo::ji("pin"), " ",lat, ", ", lon, "\n\n",
     emo::ji("i"), " Nearby point of interest: ",nearby_point_of_interest,"\n\n",
+    emo::ji("link"), " ", wiki_link, "\n\n",
     emo::ji("link"), " https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/"
   )
   
 } else {
   
   latlon_details <- paste0(
-    lat, ", ", lon, "\n",
-    "https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/"
+    emo::ji("pin"), " ",lat, ", ", lon, "\n\n",
+    emo::ji("i"), " No nearby points of interest","\n\n",
+    emo::ji("link"), " https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/"
   )
 
 }
