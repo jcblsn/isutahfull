@@ -96,15 +96,18 @@ for (i in 1:3){
 tmp <- remDr$findElement(using = "tag name", value = "li"); tmp$getElementText()
 nearby_point_of_interest <- gsub(as.character(x = tmp$getElementText()), pattern = "\n",replacement = " - ")
 
+if(is.numeric(ifelse(grep("km", nearby_point_of_interest)>0, 1, 0))) {
+  nearby_point_of_interest <- paste0(nearby_point_of_interest, " away")
+}
 
 # build the status message (text and URL) ---------------------------------
 
 if(nearby_point_of_interest != "Not logged in" & !is.na(nearby_point_of_interest)){
 
   latlon_details <- paste0(
-    lat, ", ", lon, "\n",
-    "Nearby point of interest: ",nearby_point_of_interest," away\n",
-    "https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/"
+    emo::ji("pin"), " ",lat, ", ", lon, "\n\n",
+    emo::ji("i"), " Nearby point of interest: ",nearby_point_of_interest,"\n\n",
+    emo::ji("link"), " https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/"
   )
   
 } else {
