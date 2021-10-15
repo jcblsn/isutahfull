@@ -101,7 +101,8 @@ if(is.numeric(ifelse(grep("[0-9] km|[0-9] m", nearby_point_of_interest)>0, 1, 0)
 # build the status message (text and URL) ---------------------------------
 
 if(nearby_point_of_interest != "Not logged in" & !is.na(nearby_point_of_interest)){
-
+  set.seed(1)
+  
   latlon_details <- paste0(
     emo::ji("pin"), " ",lat, ", ", lon, "\n\n",
     emo::ji("i"), " Nearby point of interest: ",nearby_point_of_interest,"\n\n",
