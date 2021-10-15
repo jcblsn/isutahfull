@@ -2,7 +2,7 @@ name: isutahfull
 
 on:
   schedule:
-    - cron: '0 */4 * * *'  # post 6x a day
+    - cron: '0 */3 * * *'  # post 8x a day
 
 jobs:
   isutahfull-post:
