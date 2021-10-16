@@ -113,6 +113,7 @@ if(nearby_point_of_interest != "Not logged in" & !is.na(nearby_point_of_interest
   
 } else {
   
+  set.seed(1)
   latlon_details <- paste0(
     emo::ji("pin"), " ",lat, ", ", lon, "\n\n",
     emo::ji("i"), " No nearby points of interest","\n\n",
