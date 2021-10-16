@@ -98,6 +98,11 @@ if(is.numeric(ifelse(grep("[0-9] km|[0-9] m", nearby_point_of_interest)>0, 1, 0)
   nearby_point_of_interest <- paste0(nearby_point_of_interest, " away")
 }
 
+keywords <- c("utah","maps","lifeelevated","satellite","landsat","mapbox","rstats","tidyverse","github","wikipedia","openstreetmap")
+prob_ut <- .25
+
+(samp_word <- sample(keywords, 1, prob = c(prob_ut,rep(((1-prob_ut)/(length(keywords)-1)),length(keywords)-1))))
+
 # build the status message (text and URL) ---------------------------------
 
 if(nearby_point_of_interest != "Not logged in" & !is.na(nearby_point_of_interest)){
@@ -108,7 +113,7 @@ if(nearby_point_of_interest != "Not logged in" & !is.na(nearby_point_of_interest
     emo::ji("i"), " Nearby point of interest: ",nearby_point_of_interest,"\n\n",
     emo::ji("link"), " ", wiki_link, "\n\n",
     emo::ji("map"), " https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/","\n\n",
-    "#utah"
+    paste0("#",samp_word)
   )
   
 } else {
@@ -118,7 +123,7 @@ if(nearby_point_of_interest != "Not logged in" & !is.na(nearby_point_of_interest
     emo::ji("pin"), " ",lat, ", ", lon, "\n\n",
     emo::ji("i"), " No nearby points of interest","\n\n",
     emo::ji("map"), " https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/","\n\n",
-    "#utah"
+    paste0("#",samp_word)
   )
 
 }
