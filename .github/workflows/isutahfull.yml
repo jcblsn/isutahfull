@@ -2,7 +2,7 @@ name: isutahfull
 
 on:
   schedule:
-    - cron: '0 */4 * * *'  # post 6x a day
+    - cron: '0 */6 * * *'  # post 6x a day
 
 jobs:
   isutahfull-post:
@@ -21,6 +21,6 @@ jobs:
       - name: Install CRAN packages
         run: Rscript -e 'install.packages(c("rtweet", "sf", "RSelenium", "devtools"), dependencies = TRUE)'
       - name: Install github packages
-        run: Rscript -e 'devtools::install_github("omegahat/Rcompression"); devtools::install_github("hadley/emo")'
+        run: Rscript -e 'devtools::install_github("hadley/emo")'
       - name: Create and post tweet
         run: Rscript isutahfull-tweet.R
