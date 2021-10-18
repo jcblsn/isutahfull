@@ -105,27 +105,35 @@ prob_ut <- .25
 
 # build the status message (text and URL) ---------------------------------
 
+latlon_details <- NA
 if(nearby_point_of_interest != "Not logged in" & !is.na(nearby_point_of_interest)){
-  set.seed(1)
   
-  latlon_details <- paste0(
-    emo::ji("pin"), " ",lat, ", ", lon, "\n\n",
-    emo::ji("i"), " Nearby point of interest: ",nearby_point_of_interest,"\n\n",
-    emo::ji("link"), " ", wiki_link, "\n\n",
-    emo::ji("map"), " https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/","\n\n",
-    paste0("#",samp_word)
-  )
+  while(
+    !is.numeric(ifelse(grep("📍", latlon_details)>0, 1, 0)) &
+    !is.numeric(ifelse(grep("🗺", latlon_details)>0, 1, 0))
+  ){
+    latlon_details <- paste0(
+      emo::ji("pin"), " ",lat, ", ", lon, "\n\n",
+      emo::ji("i"), " Nearby point of interest: ",nearby_point_of_interest,"\n\n",
+      emo::ji("link"), " ", wiki_link, "\n\n",
+      emo::ji("map"), " https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/","\n\n",
+      paste0("#",samp_word)
+    )
+  }
   
 } else {
   
-  set.seed(1)
-  latlon_details <- paste0(
-    emo::ji("pin"), " ",lat, ", ", lon, "\n\n",
-    emo::ji("i"), " No nearby points of interest","\n\n",
-    emo::ji("map"), " https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/","\n\n",
-    paste0("#",samp_word)
-  )
-
+  while(
+    !is.numeric(ifelse(grep("📍", latlon_details)>0, 1, 0)) &
+    !is.numeric(ifelse(grep("🗺", latlon_details)>0, 1, 0))
+  ){
+    latlon_details <- paste0(
+      emo::ji("pin"), " ",lat, ", ", lon, "\n\n",
+      emo::ji("i"), " No nearby points of interest","\n\n",
+      emo::ji("map"), " https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/","\n\n",
+      paste0("#",samp_word)
+    )
+  }
 }
 
 latlon_details
