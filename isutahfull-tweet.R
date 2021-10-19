@@ -47,8 +47,9 @@ zoom <- 17
 # zoom level 17 corresponds to 1.5 feet/pixel for 512x512
 # w*1.5*1.5/ 5280 = 1/3 of a mile wide
 
-w <- 512*1.5
-h <- 512*1.5
+scale <- 1.5
+w <- 512*scale
+h <- 512*scale
 
 (img_url <- paste0(
   "https://api.mapbox.com/styles/v1/mapbox/satellite-v9/static/",
@@ -108,10 +109,8 @@ prob_ut <- .25
 latlon_details <- NA
 if(nearby_point_of_interest != "Not logged in" & !is.na(nearby_point_of_interest)){
   
-  while(
-    !is.numeric(ifelse(grep("📍", latlon_details)>0, 1, 0)) &
-    !is.numeric(ifelse(grep("🗺", latlon_details)>0, 1, 0))
-  ){
+  repeat{
+    
     latlon_details <- paste0(
       emo::ji("pin"), " ",lat, ", ", lon, "\n\n",
       emo::ji("i"), " Nearby point of interest: ",nearby_point_of_interest,"\n\n",
@@ -119,21 +118,32 @@ if(nearby_point_of_interest != "Not logged in" & !is.na(nearby_point_of_interest
       emo::ji("map"), " https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/","\n\n",
       paste0("#",samp_word)
     )
+    
+    if(
+      is.numeric(ifelse(grep("📍", latlon_details)>0, 1, 0)) &
+      is.numeric(ifelse(grep("🗺", latlon_details)>0, 1, 0))
+    ){
+      break
+    }
   }
   
 } else {
   
-  while(
-    !is.numeric(ifelse(grep("📍", latlon_details)>0, 1, 0)) &
-    !is.numeric(ifelse(grep("🗺", latlon_details)>0, 1, 0))
-  ){
+  repeat {
     latlon_details <- paste0(
       emo::ji("pin"), " ",lat, ", ", lon, "\n\n",
       emo::ji("i"), " No nearby points of interest","\n\n",
       emo::ji("map"), " https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/","\n\n",
       paste0("#",samp_word)
     )
-  }
+    if(
+      is.numeric(ifelse(grep("📍", latlon_details)>0, 1, 0)) &
+      is.numeric(ifelse(grep("🗺", latlon_details)>0, 1, 0))
+    ){
+      break
+    }
+  } 
+  
 }
 
 latlon_details
