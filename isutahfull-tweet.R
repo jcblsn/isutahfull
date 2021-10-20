@@ -47,7 +47,7 @@ zoom <- 17
 # zoom level 17 corresponds to 1.5 feet/pixel for 512x512
 # w*1.5*1.5/ 5280 = 1/3 of a mile wide
 
-scale <- 1.5
+scale <- 2.5
 w <- 512*scale
 h <- 512*scale
 
