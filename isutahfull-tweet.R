@@ -99,7 +99,7 @@ if(is.numeric(ifelse(grep("[0-9] km|[0-9] m", nearby_point_of_interest)>0, 1, 0)
   nearby_point_of_interest <- paste0(nearby_point_of_interest, " away")
 }
 
-keywords <- c("utah","maps","lifeelevated","satellite","landsat","mapbox","rstats","tidyverse","github","wikipedia","openstreetmap", "sentinel2", "utpol", "bot", "opensource")
+keywords <- c("utah","maps","lifeelevated","satellite","landsat","mapbox","rstats","tidyverse","github","wikipedia","openstreetmap", "sentinel2", "utpol", "bot", "opensource", "rselenium")
 prob_ut <- .25
 
 (samp_word <- sample(keywords, 1, prob = c(prob_ut,rep(((1-prob_ut)/(length(keywords)-1)),length(keywords)-1))))
