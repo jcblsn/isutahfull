@@ -88,7 +88,6 @@ for (i in 1:5){
   while((as.numeric(Sys.time()) - as.numeric(date_time))<2){} #dummy while loop
 }
 
-
 # out_text <- remDr$findElement(using = "xpath", value = "/html/body/div[3]/div[3]/div[4]/div[2]/div/ul/li/a/h3")
 # out_link <- remDr$findElement(using = "xpath", "/@href")
 
