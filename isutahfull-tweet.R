@@ -146,6 +146,7 @@ if(nearby_point_of_interest != "Not logged in" & !is.na(nearby_point_of_interest
 
 latlon_details
 
+
 # post the image to Twitter -----------------------------------------------
 
 rtweet::post_tweet(
