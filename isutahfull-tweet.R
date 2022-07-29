@@ -59,7 +59,7 @@ h <- 512*scale
 
 # download the image to a temporary location ------------------------------
 
-temp_file <- tempfile()
+temp_file <- tempfile(fileext = ".jpeg")
 download.file(img_url, temp_file)
 
 
@@ -152,6 +152,7 @@ latlon_details
 rtweet::post_tweet(
   status = latlon_details,
   media = temp_file, 
+  media_alt_text = "A satellite capture of a 2000'x2000' plot somewhere in the Beehive State.",
   token = isutahfull_token
 )
 
