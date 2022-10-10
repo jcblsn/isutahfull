@@ -156,5 +156,4 @@ rtweet::post_tweet(
 )
 
 rD$server$stop()
-
 rm(list = ls())
