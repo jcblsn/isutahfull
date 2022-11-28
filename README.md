@@ -1,11 +1,11 @@
 
-# isutahfull
+# texturesofut
 
 This repository contains code for the Twitter bot [`texturesofut`](https://twitter.com/texturesofut).
 
 # Attribution
 
-`isutahfull` is part of the ['mapbotverse'](https://github.com/matt-dray/londonmapbot). The author of the original template wrote a very helpful guide to his workflow, which can be found [here](https://www.rostrum.blog/2020/09/21/londonmapbot/).
+`texturesofut` is part of the ['mapbotverse'](https://github.com/matt-dray/londonmapbot). The author of the original template wrote a very helpful guide to his workflow, which can be found [here](https://www.rostrum.blog/2020/09/21/londonmapbot/).
 
 # Differences from londonmapbot
 
