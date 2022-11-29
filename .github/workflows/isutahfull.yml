@@ -6,7 +6,7 @@ on:
 
 jobs:
   isutahfull-post:
-    runs-on: macOS-latest
+    runs-on: macOS-11
     env:
       TWITTER_CONSUMER_API_KEY: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
       TWITTER_CONSUMER_API_SECRET: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v2-branch
       - uses: r-lib/actions/setup-r@master
       # - uses: r-lib/actions/setup-r@v2-branch
-      - run: git pull origin master
+      # - run: git pull origin master
       - uses: browser-actions/setup-firefox@latest 
       - run: firefox --version 
       - name: Fix gdal issue
