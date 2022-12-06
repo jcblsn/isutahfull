@@ -30,7 +30,7 @@ jobs:
       # - uses: r-lib/actions/setup-r-dependencies@v2
     
       
-      - uses: browser-actions/setup-firefox@v93.0 
+      - uses: browser-actions/setup-firefox@93.0 
       - run: firefox --version 
 
       - name: Fix gdal issue
