@@ -30,8 +30,8 @@ jobs:
       # - uses: r-lib/actions/setup-r-dependencies@v2
     
       
-      - uses: browser-actions/setup-firefox@93.0 
-      - run: firefox --version 
+      # - uses: browser-actions/setup-firefox@93.0 
+      # - run: firefox --version 
 
       - name: Fix gdal issue
         run: |
@@ -43,4 +43,4 @@ jobs:
       - name: Install github packages
         run: Rscript -e 'devtools::install_github("hadley/emo")'
       - name: Create and post tweet
-        run: Rscript isutahfull-tweet.R
+        run: Rscript isutahfull-tweet-simple.R
