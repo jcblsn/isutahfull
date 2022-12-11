@@ -39,7 +39,7 @@ jobs:
           brew install gdal
       - name: Install CRAN packages
         # run: Rscript -e 'install.packages("Rcpp", repos="https://rcppcore.github.io/drat")'
-        run: Rscript -e 'install.packages(c("rtweet", "rgdal", "sf", "RSelenium", "devtools"), dependencies = TRUE)'
+        run: Rscript -e 'install.packages(c("units", "rtweet", "rgdal", "sf", "RSelenium", "devtools"), dependencies = TRUE)'
       - name: Install github packages
         run: Rscript -e 'devtools::install_github("hadley/emo")'
       - name: Create and post tweet
